@@ -1,0 +1,42 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: black;
+  }
+  
+  .square {
+    --size: 15vmin;
+    width: var(--size);
+    height: var(--size);
+    margin-top: calc(var(--size) * -2);
+    margin-left: calc(var(--size) * -2);
+    background-color: rgb(169, 10, 209);
+    animation: animate 2300ms infinite;
+  
+    // Set 'linear' value for entire animation's timing function
+    // (pulled out of 'animation' shorthand property for brevity):
+    animation-timing-function: linear;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(200%, 0);
+    }
+    50% {
+      transform: translate(200%, 200%);
+  
+      // Override 'linear' timing function:
+      animation-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    }
+    75% {
+      transform: translate(0, 200%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+  
